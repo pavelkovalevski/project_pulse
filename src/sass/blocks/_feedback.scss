@@ -1,0 +1,36 @@
+.feedback {
+    padding-bottom: 50px;
+    &__items {
+        margin-top: 60px;
+    }
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 60px;
+        img {
+            height: 169px;
+            width: 169px;
+        }
+    }
+    &__wrapper {
+        min-height: 169px;
+        margin-left: 60px;
+    }
+    &__header {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 18px;
+        color: #0D0D0D;
+    }
+    &__subheader {
+        font-weight: 500;
+        font-size: 14px;
+        color: #646464;
+        margin-bottom: 10px;
+    }
+    &__descr {
+        font-weight: 300;
+        font-size: 16px;
+        color: #0D0D0D;
+    }
+}
