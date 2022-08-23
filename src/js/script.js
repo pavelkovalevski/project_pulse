@@ -48,6 +48,30 @@ $(document).ready(function(){
     $('.modal__close').on('click', function() {
         $('.overlay, #consultation, #order, #thanks').fadeOut();
     });
+   
+    function valideFormes(form) {
+        $(form).validate({
+            rules: {
+                name: "required",
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: "Пожалуйста, заполните поле",
+                phone: "Пожалуйста, заполните поле",
+                email: {
+                    required: "Пожалуйста, заполните поле",
+                    email: "Ваш e-mail должен быть в формате example@mail.ru"
+                }
+            }
+        });
+    }
+    valideFormes('#consultation-form');
+    valideFormes('#consultation form');
+    valideFormes('#order form');
 });
 
 /* var name = "Pavel";
