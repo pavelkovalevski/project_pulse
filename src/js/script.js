@@ -48,7 +48,8 @@ $(document).ready(function(){
     $('.modal__close').on('click', function() {
         $('.overlay, #consultation, #order, #thanks').fadeOut();
     });
-   
+    
+    //валидация форм
     function valideFormes(form) {
         $(form).validate({
             rules: {
@@ -72,6 +73,40 @@ $(document).ready(function(){
     valideFormes('#consultation-form');
     valideFormes('#consultation form');
     valideFormes('#order form');
+    
+    //отправка писем с сайта
+    $('form').submit(function(e) {
+        e.preventDefault();
+        if (!$(this).valid()) {
+            return;
+        }
+        $.ajax({
+            type: "POST",
+            url: "mailer/mailer/smart.php",
+            data: $(this).serialize()
+        }).done (function() {
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn();
+            $('form').trigger('reset');
+        });
+        return false;
+    });
+
+    //плавный скролл и кнопака "вверх"
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 1600) {
+            $('.pageup').fadeIn();
+        } else {
+            $('.pageup').fadeOut();
+        }
+    })
+
+    $("a[href^='#']").click(function(){
+        const _href = $(this).attr("href");
+        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+        return false;
+    })
 });
 
 /* var name = "Pavel";
