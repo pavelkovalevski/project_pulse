@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    //carousel
     $('.carousel__inner').slick({
         speed: 1200,
         /* adaptiveHeight: true, */
@@ -14,6 +15,8 @@ $(document).ready(function(){
             }
         ]  
     });
+
+    //tabs
     $('ul.catalog__tabs').on('click', 'li:not(.active)', function() {
 		$(this)
 		  .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
@@ -49,7 +52,7 @@ $(document).ready(function(){
         $('.overlay, #consultation, #order, #thanks').fadeOut();
     });
     
-    //валидация форм
+    //form validation
     function valideFormes(form) {
         $(form).validate({
             rules: {
@@ -74,7 +77,7 @@ $(document).ready(function(){
     valideFormes('#consultation form');
     valideFormes('#order form');
     
-    //отправка писем с сайта
+    //sending mails
     $('form').submit(function(e) {
         e.preventDefault();
         if (!$(this).valid()) {
@@ -93,7 +96,7 @@ $(document).ready(function(){
         return false;
     });
 
-    //плавный скролл и кнопака "вверх"
+    //pageup button
     $(window).scroll(function() {
         if ($(this).scrollTop() > 1600) {
             $('.pageup').fadeIn();
@@ -102,6 +105,7 @@ $(document).ready(function(){
         }
     })
 
+    //smooth scroll
     $("a[href^='#']").click(function(){
         const _href = $(this).attr("href");
         $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
