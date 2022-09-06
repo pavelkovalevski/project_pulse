@@ -135,20 +135,23 @@
                 transform: translateX(-100%);
                 margin-right: 0px;
             }
-            li {
-                position: relative;
-                font-weight: 300;
-                font-size: 14px;
-                color: #555555;
-                margin-bottom: 10px;
-                &:before {
-                    content: '';
-                    position: absolute;
-                    width: 8px;
-                    height: 8px;
-                    background-color: $color_red;
-                    left: -20px;
-                    top: 6px;
+            ul {
+                padding: 0;
+                li {
+                    position: relative;
+                    font-weight: 300;
+                    font-size: 14px;
+                    color: #555555;
+                    margin-bottom: 10px;
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        width: 8px;
+                        height: 8px;
+                        background-color: $color_red;
+                        left: -20px;
+                        top: 6px;
+                    }
                 }
             }
         }
